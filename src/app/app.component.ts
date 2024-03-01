@@ -13,10 +13,12 @@ export class AppComponent {
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getDados().subscribe((res: any) => {
+    this.apiService.getItems().subscribe((res: any) => {
       console.log('res...', res)
       this.dados = res;
     });
   }
 }
+
+
 

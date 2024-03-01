@@ -1,0 +1,20 @@
+<!-- <div class="card" *ngFor="let dado of dados" style="width: 18rem;">
+  <img src="{{dado.imagem}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ dado.nome }}</h5>
+    <p class="card-text">{{ dado.cidade }}</p>
+    <p class="card-text">{{ dado.idade }}</p>
+  </div>
+</div> -->
+<div class="row">
+  <div class="col-md-4" *ngFor="let item of items">
+    <div class="card">
+      <img [src]="item.imagem" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ item.nome }}</h5>
+        <p class="card-text">{{ item.cidade }}, {{ item.idade }} anos</p>
+        <button class="btn btn-primary" (click)="deleteItem(item.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,13 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CardComponent } from './card/card.component';
+import { ItemsComponent } from './card/items.component';
 import { UploadComponent } from './upload/uploadComponent';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardComponent,
+    ItemsComponent,
     UploadComponent
   ],
   imports: [
@@ -18,7 +19,7 @@ import { UploadComponent } from './upload/uploadComponent';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

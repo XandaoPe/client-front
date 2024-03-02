@@ -1,0 +1,70 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Gerenciamento de clientes</li>
+  </ol>
+</nav>
+<div class="container">
+  <div class="card list-client">
+    <h5 class="card-header">Lista de Clientes</h5>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Imagem</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td>{{client._id}}</td>
+            <td>{{client.nome}}</td>
+            <td>{{client.cidade}}</td>
+            <td style="max-width: 200px;">{{client.imagem}}</td>
+            <td>{{client.idade}}</td>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" (click)="editClient(client)">Editar</button>
+              <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteClient(client)">Deletar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card add-client">
+    <h5 class="card-header">Adicionar/Atualizar clientes</h5>
+    <div class="card-body">
+      <form id="add-form" (ngSubmit)="f.form.valid && saveClient(f)" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" [(ngModel)]="client.nome" id="nome" name="nome" #nome="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && nome.invalid }" placeholder="Digite o nome">
+        </div>
+        <div class="form-group">
+          <label for="cidade">Cidade</label>
+          <input type="text" [(ngModel)]="client.cidade" id="cidade" name="cidade" #cidade="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && cidade.invalid }"
+            placeholder="Digite a cidade">
+          <div *ngIf="f.submitted && cidade.invalid" class="invalid-feedback">
+            <!-- <div *ngIf="cidade.errors.required">Cidade é obrigatória</div> -->
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="idade">Idade</label>
+          <input type="number" [(ngModel)]="client.idade" id="idade" name="idade" #idade="ngModel" required
+            class="form-control" [ngClass]="{ 'is-invalid': f.submitted && idade.invalid }"
+            placeholder="Digite a idade">
+          <div *ngIf="f.submitted && idade.invalid" class="invalid-feedback">
+            <!-- <div *ngIf="idade.errors.required">idade é obrigatório</div> -->
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-add-client">Salvar</button>
+        <button type="reset" class="btn btn-secondary btn-add-client" (click)="cleanForm(f)">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</div>

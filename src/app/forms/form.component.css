@@ -2,14 +2,18 @@
   margin-top: 30px;
 }
 
-.add-car {
+button{
+  margin: 3px;
+}
+
+.add-client {
   margin-bottom: 30px;
 }
 
-.list-car {
+.list-client {
   margin-bottom: 50px;
 }
 
-.btn-add-car {
+.btn-add-client {
   margin-right: 10px;
 }

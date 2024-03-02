@@ -6,20 +6,23 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemsComponent } from './card/items.component';
 import { UploadComponent } from './upload/uploadComponent';
-import { ApiService } from './api.service';
+import { FormComponent } from './forms/formComponent';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
-    UploadComponent
+    UploadComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [ApiService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

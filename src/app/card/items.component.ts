@@ -5,8 +5,9 @@ import { Client } from '../models/client';
 @Component({
   selector: 'app-items',
   templateUrl: 'items.component.html',
-  styleUrls: []
+  styleUrls: ['items.component.css'],
 })
+
 export class ItemsComponent implements OnInit {
 
   items: Client[] = [];

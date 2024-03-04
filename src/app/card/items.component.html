@@ -1,14 +1,16 @@
-<div class="row">
-  <div class="col-md-3" *ngFor="let item of items">
-    <div class="card" style="
-    width: 250px;
-    height: 100%;
-    overflow: hidden;">
-      <div class="card-body">
-        <h5 class="card-title">{{ item.nome }}</h5>
-        <p class="card-text">{{ item.imagem }}</p>
-      </div>
-      <img [src]="item.imagem" class="card-img-top" alt="..." style="width: 100%;     max-height: 350px;">
-    </div>
-  </div>
-</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Cadastro de Clientes</mat-card-title>
+    <mat-card-subtitle>Angular/NestJs</mat-card-subtitle>
+  </mat-card-header>
+    <mat-card-content *ngFor="let item of items">
+      <img mat-card-image [src]="item.imagem" alt="Photo of a Shiba Inu">
+      <h5 class="card-title">{{ item.nome }}</h5>
+      <p class="card-text">{{ item.imagem }}</p>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card-content>
+</mat-card>
